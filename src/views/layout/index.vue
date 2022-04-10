@@ -17,7 +17,7 @@
       </a>
       <n-menu :options="menuOptions" :value="String(route.name)" @update:value="goRoute"></n-menu>
       <div class="content-bottom" v-if="!collapsed">
-        {{byteConvert(aboutInfo?.quota.usage)}} / {{byteConvert(aboutInfo?.quota.limit)}} <n-text type="primary" @click="showCode = true">会员码</n-text>
+        {{byteConvert(aboutInfo?.quota.usage)}} / {{byteConvert(aboutInfo?.quota.limit)}} 
         <n-progress 
           v-if="aboutInfo?.quota"
           type="line"
@@ -59,23 +59,7 @@
       </n-layout-content>
     </n-layout>
   </n-layout>
-  <n-modal v-model:show="showCode">
-    <n-card style="width: 600px;" title="会员码">
-      <template #header-extra>
-        <n-icon @click="showCode = false">
-          <circle-x></circle-x>
-        </n-icon>
-      </template>
-      <n-input placeholder="会员码" v-model:value="code"></n-input>
-      <p>
-        <a style="color: #306eff;" target="_blank" href="https://k.youshop10.com/JGDtoxg6">【0.33元/天】PikPak体验会员VIP年卡-可与7天免费会员码叠加-每人只能购买使用一次，感谢支持</a>
-      </p>
 
-      <template #action>
-        <n-button :block="true" type="primary" :disabled="!code" @click="postCode">添加</n-button>
-      </template>
-    </n-card>
-  </n-modal>
 </template>
 
 <script setup lang="ts">
